@@ -164,33 +164,51 @@
             name: '',
             email: '',
             address: '',
-            zipCode: 33100,
+            zipCode: '',
             message:'',
             sendMail: [],
             gender: '',
             favIceCream: ''
           },
-          iceCreamFlavours: ['vanilla','chocolate', 'strawberry', 'jallu'],
-          formIsSubmitted: false
+          iceCreamFlavours: [],
+          formIsSubmitted: false,
+          postUrl: 'example/url',
+          getUrl: 'src/assets/mock.json'
         }
       },
       methods:{
         submitForm(){
           axios.post(
-            'example/url',
+            this.postUrl,
               this.contactData
           )
           .then(function (response) {
-            console.log(response);
+            //Do Something
           })
           .catch(function (error) {
             console.log(error);
           });
         }
+      },
+      created(){
+          var vm = this;
+          axios.get(this.getUrl)
+          .then(function (response) {
+            if(!response.data){
+              console.error('There is problem fetching icecream data')
+              return;
+            }
+            response.data.data.map( function(element) {
+                vm.iceCreamFlavours.push(element);
+            });
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
       }
     }
 </script>
 
-<style lang="">
+<style lang="sass">
 
 </style>
