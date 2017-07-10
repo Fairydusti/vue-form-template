@@ -1,6 +1,6 @@
-# first-vue
+# Vue-form-template
 
-> A Vue.js project
+> Basic form with VueJS and axios(http)
 
 ## Build Setup
 
@@ -15,4 +15,6 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+#TODO: 
+- Form validation 
+- Basic styling
