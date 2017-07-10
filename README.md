@@ -15,6 +15,6 @@ npm run dev
 npm run build
 ```
 
-#TODO: 
+# TODO: 
 - Form validation 
 - Basic styling
