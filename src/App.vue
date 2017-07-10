@@ -156,6 +156,7 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
       data(){
         return {
@@ -175,7 +176,16 @@
       },
       methods:{
         submitForm(){
-          this.formIsSubmitted = true;
+          axios.post(
+            'example/url',
+              this.contactData
+          )
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
         }
       }
     }
