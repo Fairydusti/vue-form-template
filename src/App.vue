@@ -5,40 +5,7 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <h1>Questionnaire</h1>
                     <hr>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input
-                          v-model.lazy="contactData.name"
-                          type="text"
-                          id="name"
-                          class="form-control"
-                          autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input
-                          v-model.lazy="contactData.email"
-                          type="text"
-                          id="email"
-                          class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input
-                          v-model.lazy="contactData.address"
-                          type="text"
-                          id="address"
-                          class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="zip">Zip code</label>
-                        <input
-                          v-model.number.lazy="contactData.zipCode"
-                          type="number"
-                          id="zip"
-                          class="form-control">
-                    </div>
-
+                    <pesonal-info></pesonal-info>
                 </div>
             </div>
             <div class="row">
@@ -131,32 +98,13 @@
             </div>
         </form>
         <hr>
-        <div class="row" v-if="formIsSubmitted">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4>Your Data</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Name:&nbsp;{{contactData.name}}</p>
-                        <p>Mail:&nbsp;{{contactData.email}}</p>
-                        <p>Address:&nbsp;{{contactData.address}}</p>
-                        <p>Age:{{contactData.zipCode}}</p>
-                        <p>Message: {{contactData.message}}</p>
-                        <p><strong>Send Mail?</strong></p>
-                        <div v-for="item in contactData.sendMail">{{item}}</div>
-                        <p>Gender: {{contactData.gender}}</p>
-                        <p>Icecream flavour: {{contactData.favIceCream}}</p>
-                        <p>Switched:</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 
 <script>
     import axios from 'axios'
+    import personalInfo from './components/form-page1.vue'
+
     export default {
       data(){
         return {
@@ -176,13 +124,23 @@
           getUrl: 'src/assets/mock.json'
         }
       },
+      components:{
+        pesonalInfo: personalInfo
+      },
       methods:{
         submitForm(){
+          //this.$store.state.formData
+          const vm = this;
+          const store = this.$store;
+          store.commit('setFormData', this.contactData);
+          console.log(store.getters.getFormData);
+          return;
           axios.post(
             this.postUrl,
               this.contactData
           )
           .then(function (response) {
+            vm.formIsSubmitted = true;
             //Do Something
           })
           .catch(function (error) {
@@ -191,7 +149,7 @@
         }
       },
       created(){
-          var vm = this;
+          const vm = this;
           axios.get(this.getUrl)
           .then(function (response) {
             if(!response.data){
@@ -205,6 +163,11 @@
           .catch(function (error) {
             console.error(error);
           });
+      },
+      watch:{
+        contactData(){
+          this.$store.state.formData = this.contactData;
+        }
       }
     }
 </script>
