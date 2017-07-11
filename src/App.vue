@@ -104,7 +104,7 @@
 <script>
     import axios from 'axios'
     import personalInfo from './components/form-page1.vue'
-
+    // import state from './store'
     export default {
       data(){
         return {
@@ -132,8 +132,8 @@
           //this.$store.state.formData
           const vm = this;
           const store = this.$store;
-          store.commit('setFormData', this.contactData);
-          console.log(store.getters.getFormData);
+          // store.commit('setFormData', this.contactData);
+          console.log(store.getters.getPersonData);
           return;
           axios.post(
             this.postUrl,

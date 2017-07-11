@@ -4,16 +4,19 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 export const store = new Vuex.Store({
 	state:{
-		formData:{}
+		persondata:{
+		},
+		iceCreamData:{},
+		otherData:{}
 	},
 	mutations:{
-		setFormData(state, data){
-			state.formData = data;
+		setPersonData: (state, data) =>{
+			state.persondata = data;
 		}
 	},
 	getters:{
-		getFormData: state =>{
-			return state.formData;
+		getPersonData: state =>{
+			return state.personData;
 		}
 	}
 
