@@ -128,11 +128,8 @@
       },
       methods:{
         submitForm(){
-          //this.$store.state.formData
           const vm = this;
           const store = this.$store;
-          // store.commit('setFormData', this.contactData);
-          console.log(store.getters.getPersonData);
           return;
           axios.post(
             this.postUrl,
@@ -162,11 +159,6 @@
           .catch(function (error) {
             console.error(error);
           });
-      },
-      watch:{
-        contactData(){
-          this.$store.state.formData = this.contactData;
-        }
       }
     }
 </script>

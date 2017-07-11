@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import personalInfo from './components/form-page1.vue'
 
-import { store } from './storage/store'
+import { store } from './store/store'
 
 Vue.use(VueRouter);
 
