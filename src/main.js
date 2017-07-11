@@ -13,4 +13,3 @@ new Vue({
   store,
   render: h => h(App)
 })
-// Vue.component('pesonal-info', personalInfo)

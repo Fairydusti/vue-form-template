@@ -104,7 +104,6 @@
 <script>
     import axios from 'axios'
     import personalInfo from './components/form-page1.vue'
-    // import state from './store'
     export default {
       data(){
         return {
