@@ -14,6 +14,9 @@ export const store = new Vuex.Store({
 		},
 		setOtherData: (state, data)=> {
 			state.otherData = data;
+		},
+		setIceCreamData:(state,data)=>{
+			state.iceCreamData = data;
 		}
 	},
 	getters:{

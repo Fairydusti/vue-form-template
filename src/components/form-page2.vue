@@ -71,14 +71,13 @@
             sendMail: false,
             sendInfomail: false,
             nomail: false,
-            gender: '',
-            favIceCream: ''
+            gender: ''
         }
       }
     },
     methods: {
       updateData(event){
-        console.log(event.target.value)
+        //Check changed value in dummy switch case
         switch(event.target.id){
           case 'message':
             this.data.message = event.target.value;
