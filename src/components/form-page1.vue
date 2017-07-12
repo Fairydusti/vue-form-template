@@ -35,6 +35,7 @@
 	          @input="updateData"
 	          class="form-control">
 	    </div>
+       <router-link to="/mail" replace>Next</router-link>
 	</div>
 </template>
 <script>

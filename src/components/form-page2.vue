@@ -59,6 +59,7 @@
             value="Other"
             @change="updateData"> Other
       </label>
+      <router-link to="/icecream" replace> Next</router-link>
     </div>
 </div>
 </template>

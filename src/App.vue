@@ -5,9 +5,11 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <h1>Questionnaire</h1>
                     <hr>
-                    <pesonal-info></pesonal-info>
-                    <other-info></other-info>
-                    <ice-cream-info></ice-cream-info>
+                    <router-view>
+                      <pesonal-info></pesonal-info>
+                      <other-info></other-info>
+                      <ice-cream-info></ice-cream-info>
+                    </router-view>
                 </div>
             </div>
             <hr>
@@ -28,6 +30,7 @@
     import personalInfo from './components/form-page1.vue'
     import otherInfo from './components/form-page2.vue'
     import iceCreamInfo from './components/form-page3.vue'
+    import Home from './components/home.vue'
 
     export default {
       data(){
@@ -40,12 +43,14 @@
           },
           formIsSubmitted: false,
           postUrl: 'example/url',
+
         }
       },
       components:{
         pesonalInfo: personalInfo,
         otherInfo: otherInfo,
-        iceCreamInfo: iceCreamInfo
+        iceCreamInfo: iceCreamInfo,
+        home: Home
       },
       methods:{
         submitForm(){

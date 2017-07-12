@@ -6,7 +6,8 @@ export const store = new Vuex.Store({
 	state:{
 		persondata:{},
 		iceCreamData:{},
-		otherData:{}
+		otherData:{},
+		page: 
 	},
 	mutations:{
 		setPersonData: (state, data) =>{
