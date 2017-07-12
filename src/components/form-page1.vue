@@ -1,7 +1,6 @@
 <template>
 	<div>
 		
-		<h1>Hello Page 1</h1>
 	    <div class="form-group">
 	        <label for="name">Name</label>
 	        <input
@@ -39,7 +38,6 @@
 	</div>
 </template>
 <script>
-	import mapGetters from 'vuex';
 	export default{
 		data(){
 			return {
@@ -53,6 +51,7 @@
 		},
 		methods: {
 			updateData(event){
+            //Check changed value in dummy switch case
 				switch(event.target.id){
 					case 'name':
 						this.data.name = event.target.value;

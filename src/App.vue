@@ -6,75 +6,10 @@
                     <h1>Questionnaire</h1>
                     <hr>
                     <pesonal-info></pesonal-info>
+                    <other-info></other-info>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
-                    <label for="message">Message</label><br>
-                    <!-- Interpolation between <textarea>{{ test }}</textarea> doesn't work!-->
-                    <textarea
-                            v-model="contactData.message"
-                            id="message"
-                            rows="5"
-                            class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                    <div class="form-group">
-                        <label for="sendmail">
-                            <input
-                              type="checkbox"
-                              id="sendmail"
-                              value="SendMail"
-                              v-model="contactData.sendMail"
-                              > Send Mail
-                        </label>
-                        <label for="sendInfomail">
-                            <input
-                              type="checkbox"
-                              id="sendInfomail"
-                              value="SendInfoMail"
-                              v-model="contactData.sendMail"
-                              > Send Infomail
-                        </label>
-                        <label for="nomail">
-                            <input
-                              type="checkbox"
-                              id="nomail"
-                              value="DoNotSendMail"
-                              v-model="contactData.sendMail"
-                              >Do not Send me any mail
-                        </label>
-                    </div>
 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
-                    <label for="male">
-                        <input
-                          type="radio"
-                          id="male"
-                          value="Male"
-                          v-model="contactData.gender"> Male
-                    </label>
-                    <label for="female">
-                        <input
-                          type="radio"
-                          id="female"
-                          value="Female"
-                          v-model="contactData.gender"> Female
-                    </label>
-                    <label for="other">
-                        <input
-                          type="radio"
-                          id="other"
-                          value="Other"
-                          v-model="contactData.gender"> Other
-                    </label>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
                     <label for="iceCreamFlavours">Select your favourite icecream?</label>
@@ -104,6 +39,8 @@
 <script>
     import axios from 'axios'
     import personalInfo from './components/form-page1.vue'
+    import otherInfo from './components/form-page2.vue'
+
     export default {
       data(){
         return {
@@ -111,11 +48,7 @@
             name: '',
             email: '',
             address: '',
-            zipCode: '',
-            message:'',
-            sendMail: [],
-            gender: '',
-            favIceCream: ''
+            zipCode: ''
           },
           iceCreamFlavours: [],
           formIsSubmitted: false,
@@ -124,7 +57,8 @@
         }
       },
       components:{
-        pesonalInfo: personalInfo
+        pesonalInfo: personalInfo,
+        otherInfo: otherInfo
       },
       methods:{
         submitForm(){

@@ -11,6 +11,9 @@ export const store = new Vuex.Store({
 	mutations:{
 		setPersonData: (state, data) =>{
 			state.persondata = data;
+		},
+		setOtherData: (state, data)=> {
+			state.otherData = data;
 		}
 	},
 	getters:{
