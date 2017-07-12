@@ -1,6 +1,6 @@
 # Vue-form-template
 
-> Basic form with VueJS and axios(http)
+> Basic form with VueJS, Vuex, Vue-router and axios(http)
 
 ## Build Setup
 

@@ -95,12 +95,12 @@
 <style lang="SASS">
     .slide-enter-active {
       /*transition: all .4s ease;*/
-      animation: slide-in 0.7s ease-in forwards;
+      animation: slide-in 1s ease-in forwards;
       transition: opacity .7s;
     }
     .slide-leave-active {
       /*transition: all .8s linear;*/
-      animation: slide-out 0.7s ease-out forwards;
+      animation: slide-out 0.3s ease-out backwards;
       transition: opacity .7s;
     }
     .slide-enter,
@@ -118,10 +118,10 @@
     }
     @keyframes slide-out{
         from{
-          transform: translateX(0);
-        }
+/*          transform: translateX(0);
+*/        }
         to{
-          transform: translateX(50%);
-      }
+/*          transform: translateX(20%);
+*/      }
    }
 </style>

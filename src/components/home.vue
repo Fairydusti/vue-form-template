@@ -10,11 +10,6 @@
 				page: 0
 			}
 		},
-		methods:{
-			changePage(){
-				this.$store.discpatch('changePage', this.page);
-			}
-		},
 		created(){
 			this.$store.dispatch('changePage', this.page);
 		}
