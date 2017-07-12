@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex);
-import R from 'ramda'
 export const store = new Vuex.Store({
 	state:{
 		persondata:{},
@@ -41,6 +40,9 @@ export const store = new Vuex.Store({
 	getters:{
 		formData: (state) =>{
 			return {'person': state.persondata, 'mail': state.otherData, 'icecream': state.iceCreamData};
+		},
+		showPage: (state)=>{
+			return state.page;
 		}
 	}
 

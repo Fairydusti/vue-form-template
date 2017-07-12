@@ -59,8 +59,8 @@
             value="Other"
             @change="updateData"> Other
       </label>
-      <br>
-      <router-link to="/user" replace> Back</router-link>&nbsp;<router-link to="/icecream" replace> Next</router-link>
+      <br><hr>
+      <router-link to="/user" replace class="btn btn-default pull-left"> Previous</router-link>&nbsp;<router-link to="/icecream" replace class="btn btn-default pull-right"> Next</router-link>
     </div>
 </div>
 </template>
@@ -103,10 +103,10 @@
 
         }
         this.$store.dispatch('changeOtherData', this.data);
-      },
-      changePage(){
-            this.$store.dispatch('changePage', this.page);
       }
-    }
+    },
+    created(){
+      this.$store.dispatch('changePage', this.page);
+   }
   }
 </script>

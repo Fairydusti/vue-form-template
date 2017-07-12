@@ -7,7 +7,7 @@
 	export default{
 		data(){
 			return{
-				page: 11
+				page: 0
 			}
 		},
 		methods:{
@@ -16,11 +16,7 @@
 			}
 		},
 		created(){
-			return{
-				changePage:()=>{
-					this.$store.dispatch('changePage', this.page);
-				}
-			}
+			this.$store.dispatch('changePage', this.page);
 		}
 	}
 </script>

@@ -13,7 +13,7 @@
 	      >{{flavour}}</option>
 	  </select>
       <br>
-      <router-link to="/mail" replace> Back</router-link>
+      <router-link to="/mail" replace class="btn btn-default pull-left"> Previous</router-link>
 	</div>
 </template>
 <script>
@@ -39,6 +39,7 @@ export default{
 		}
 	},
 	created(){
+	    this.$store.commit('changePage', this.page);
 	    const vm = this;
 	    axios.get(this.getUrl)
 	    .then(function (response) {
@@ -53,13 +54,6 @@ export default{
 	    .catch(function (error) {
 	      console.error(error);
 	    });
-	},
-	beforeMount(){
-		return{
-			changePage:()=>{
-					this.$store.commit('changePage', this.page);
-			}
-		}
 	}
 }
 </script>

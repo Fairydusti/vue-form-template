@@ -36,7 +36,7 @@
 	          class="form-control">
 	    </div>
        <br>
-       <router-link to="/mail" replace>Next</router-link>
+       <router-link to="/mail" replace class="btn btn-default pull-right">Next</router-link>
 	</div>
 </template>
 <script>
@@ -70,10 +70,10 @@
 						break;
 				}
 				this.$store.dispatch('changePersonData', this.data);
-			},
-         changePage(){
-            this.$store.dispatch('changePage', this.page);
-         }
-		}
+			}
+		},
+      created(){
+         this.$store.dispatch('changePage', this.page);
+      }
 	}
 </script>
