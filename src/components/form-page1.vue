@@ -35,6 +35,7 @@
 	          @input="updateData"
 	          class="form-control">
 	    </div>
+       <br>
        <router-link to="/mail" replace>Next</router-link>
 	</div>
 </template>
@@ -47,7 +48,8 @@
 					email: '',
 					address: '',
 					zip: ''
-				}
+				},
+            page: 1
 			}
 		},
 		methods: {
@@ -67,8 +69,11 @@
 						this.data.zip = event.target.value;
 						break;
 				}
-				this.$store.commit('setPersonData', this.data);
-			}
+				this.$store.dispatch('changePersonData', this.data);
+			},
+         changePage(){
+            this.$store.dispatch('changePage', this.page);
+         }
 		}
 	}
 </script>

@@ -59,7 +59,8 @@
             value="Other"
             @change="updateData"> Other
       </label>
-      <router-link to="/icecream" replace> Next</router-link>
+      <br>
+      <router-link to="/user" replace> Back</router-link>&nbsp;<router-link to="/icecream" replace> Next</router-link>
     </div>
 </div>
 </template>
@@ -73,7 +74,8 @@
             sendInfomail: false,
             nomail: false,
             gender: ''
-        }
+        },
+        page: 2
       }
     },
     methods: {
@@ -100,7 +102,10 @@
             break;
 
         }
-        this.$store.commit('setOtherData', this.data);
+        this.$store.dispatch('changeOtherData', this.data);
+      },
+      changePage(){
+            this.$store.dispatch('changePage', this.page);
       }
     }
   }

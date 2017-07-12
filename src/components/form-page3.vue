@@ -12,6 +12,8 @@
 	      :value="flavour"
 	      >{{flavour}}</option>
 	  </select>
+      <br>
+      <router-link to="/mail" replace> Back</router-link>
 	</div>
 </template>
 <script>
@@ -24,7 +26,8 @@ export default{
 			getUrl: "/../src/assets/mock.json",
 			data:{
 				favIceCream:""
-			}
+			},
+			page: 3
 		}
 	},
 	methods:{
@@ -50,6 +53,13 @@ export default{
 	    .catch(function (error) {
 	      console.error(error);
 	    });
+	},
+	beforeMount(){
+		return{
+			changePage:()=>{
+					this.$store.commit('changePage', this.page);
+			}
+		}
 	}
 }
 </script>
